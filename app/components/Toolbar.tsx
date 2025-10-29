@@ -3,7 +3,7 @@
 import { formatText, wrapSelection, indentText } from '../utils/textFormatting';
 
 interface ToolbarProps {
-  editorRef: React.RefObject<HTMLDivElement>;
+  editorRef: React.RefObject<HTMLDivElement | null>;
 }
 
 export default function Toolbar({ editorRef }: ToolbarProps) {

@@ -14,8 +14,8 @@ export default function Home() {
               Champion
             </div>
           </div>
-          <a href="/editor" className="px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-medium">
-            Start Writing
+          <a href="/auth/signin" className="px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-medium">
+            Sign In
           </a>
         </nav>
       </header>
@@ -32,7 +32,7 @@ export default function Home() {
             with our elegant self-publishing platform designed by writers, for writers."
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/editor" className="px-8 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-medium inline-block text-center">
+            <a href="/auth/signin" className="px-8 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-medium inline-block text-center">
               Start Writing Now
             </a>
             <button className="px-8 py-3 border border-amber-300 text-amber-700 dark:text-amber-300 dark:border-amber-600 rounded-lg hover:bg-amber-50 dark:hover:bg-amber-800 transition-colors font-medium">

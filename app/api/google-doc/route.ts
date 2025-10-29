@@ -47,7 +47,7 @@ export async function GET(request: NextRequest) {
     console.log('Content length:', htmlContent.length);
     
     // Extract body content and clean up Google Docs specific styles
-    const bodyMatch = htmlContent.match(/<body[^>]*>(.*?)<\/body>/s);
+    const bodyMatch = htmlContent.match(/<body[^>]*>([\s\S]*?)<\/body>/);
     const bodyContent = bodyMatch ? bodyMatch[1] : htmlContent;
     
     // Clean up Google Docs styles while preserving basic formatting
