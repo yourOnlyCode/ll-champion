@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import RichTextEditor from '../components/RichTextEditor';
+import ExportButton from '../components/ExportButton';
 
 export default function ElegantEditor() {
   const [content, setContent] = useState('');
@@ -91,12 +92,15 @@ export default function ElegantEditor() {
                 <span className="text-xs sm:text-sm text-amber-600">
                   {isSaving ? 'Saving...' : 'Auto-saved'}
                 </span>
-                <button
-                  onClick={saveContent}
-                  className="px-3 py-1 sm:px-4 sm:py-2 bg-amber-600 text-white rounded hover:bg-amber-700 text-sm"
-                >
-                  Save
-                </button>
+                <div className="flex gap-2">
+                  <ExportButton text={content.replace(/<[^>]*>/g, '')} filename="document" />
+                  <button
+                    onClick={saveContent}
+                    className="px-3 py-1 sm:px-4 sm:py-2 bg-amber-600 text-white rounded hover:bg-amber-700 text-sm"
+                  >
+                    Save
+                  </button>
+                </div>
               </div>
             </div>
           </div>
