@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
     
     const response = await fetch(
-      `https://docs.google.com/document/d/${docId}/export?format=txt`,
+      `https://docs.google.com/document/d/${docId}/export?format=html`,
       {
         headers: {
           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
@@ -43,11 +43,25 @@ export async function GET(request: NextRequest) {
       }, { status: response.status });
     }
 
-    const content = await response.text();
-    console.log('Content length:', content.length);
+    const htmlContent = await response.text();
+    console.log('Content length:', htmlContent.length);
+    
+    // Extract body content and clean up Google Docs specific styles
+    const bodyMatch = htmlContent.match(/<body[^>]*>(.*?)<\/body>/s);
+    const bodyContent = bodyMatch ? bodyMatch[1] : htmlContent;
+    
+    // Clean up Google Docs styles while preserving basic formatting
+    const cleanContent = bodyContent
+      .replace(/style="[^"]*"/g, '') // Remove inline styles
+      .replace(/<span[^>]*>/g, '') // Remove span tags
+      .replace(/<\/span>/g, '')
+      .replace(/<div[^>]*>/g, '<p>') // Convert divs to paragraphs
+      .replace(/<\/div>/g, '</p>')
+      .replace(/<p><\/p>/g, '') // Remove empty paragraphs
+      .trim();
     
     return NextResponse.json({ 
-      content: content.trim(),
+      content: cleanContent,
       docId 
     });
   } catch (error: any) {

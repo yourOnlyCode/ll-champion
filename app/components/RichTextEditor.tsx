@@ -25,6 +25,20 @@ export default function RichTextEditor({ content, onChange, placeholder }: RichT
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
+    // Handle Tab key for indentation
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      
+      if (e.shiftKey) {
+        // Shift+Tab: outdent
+        document.execCommand('outdent');
+      } else {
+        // Tab: insert 4 spaces
+        document.execCommand('insertText', false, '    ');
+      }
+      return;
+    }
+
     // Handle keyboard shortcuts
     if (e.ctrlKey || e.metaKey) {
       switch (e.key) {
