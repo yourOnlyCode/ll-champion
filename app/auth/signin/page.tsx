@@ -39,18 +39,37 @@ export default function SignIn() {
 
 
 
-        {/* Email Sign In */}
-        <form onSubmit={handleEmailSignIn} className="mb-6">
+        {/* Credentials Sign In */}
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          const formData = new FormData(e.currentTarget);
+          signIn('credentials', {
+            email: formData.get('email'),
+            password: formData.get('password'),
+            callbackUrl: '/dashboard'
+          });
+        }} className="mb-6">
           <div className="mb-4">
             <label className="block text-sm font-medium text-amber-800 dark:text-amber-200 mb-2">
               Email Address
             </label>
             <input
               type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
               className="w-full px-4 py-3 border border-amber-300 dark:border-amber-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-white dark:bg-amber-800 text-amber-900 dark:text-amber-100"
-              placeholder="author@example.com"
+              placeholder="email@email.com"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-amber-800 dark:text-amber-200 mb-2">
+              Password
+            </label>
+            <input
+              type="password"
+              name="password"
+              className="w-full px-4 py-3 border border-amber-300 dark:border-amber-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-white dark:bg-amber-800 text-amber-900 dark:text-amber-100"
+              placeholder="password"
               required
             />
           </div>
@@ -58,7 +77,7 @@ export default function SignIn() {
             type="submit"
             className="w-full bg-amber-600 hover:bg-amber-700 text-white font-medium py-3 px-4 rounded-lg transition-colors"
           >
-            Sign in with Email
+            Sign In
           </button>
         </form>
 
@@ -77,7 +96,7 @@ export default function SignIn() {
         <div className="space-y-3">
           {providers?.google && (
             <button
-              onClick={() => signIn('google', { callbackUrl: '/editor' })}
+              onClick={() => signIn('google', { callbackUrl: '/dashboard' })}
               className="w-full flex items-center justify-center gap-3 bg-white hover:bg-gray-50 border border-gray-300 text-gray-700 font-medium py-3 px-4 rounded-lg transition-colors"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24">
@@ -92,7 +111,7 @@ export default function SignIn() {
 
           {providers?.apple && (
             <button
-              onClick={() => signIn('apple', { callbackUrl: '/editor' })}
+              onClick={() => signIn('apple', { callbackUrl: '/dashboard' })}
               className="w-full flex items-center justify-center gap-3 bg-black hover:bg-gray-800 text-white font-medium py-3 px-4 rounded-lg transition-colors"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
