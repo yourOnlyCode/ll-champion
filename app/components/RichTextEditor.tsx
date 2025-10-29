@@ -67,10 +67,12 @@ export default function RichTextEditor({ content, onChange, placeholder }: RichT
         contentEditable
         onInput={handleInput}
         onKeyDown={handleKeyDown}
-        className="p-8 min-h-[500px] outline-none text-lg leading-relaxed font-serif text-amber-900 dark:text-amber-100 prose prose-amber max-w-none"
+        className="p-4 sm:p-8 min-h-[400px] sm:min-h-[500px] outline-none text-base sm:text-lg leading-relaxed font-serif text-amber-900 dark:text-amber-100 prose prose-amber max-w-none touch-manipulation"
         style={{ 
           fontFamily: 'Georgia, serif',
-          lineHeight: '1.8'
+          lineHeight: '1.8',
+          WebkitUserSelect: 'text',
+          userSelect: 'text'
         }}
         data-placeholder={placeholder}
       />

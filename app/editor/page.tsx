@@ -57,45 +57,48 @@ export default function ElegantEditor() {
     <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900 dark:to-orange-900">
       {/* Header */}
       <header className="bg-white/80 dark:bg-amber-900/80 backdrop-blur-sm border-b border-amber-200 dark:border-amber-700">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <h1 className="text-2xl font-serif font-bold text-amber-800 dark:text-amber-200">
+        <div className="max-w-6xl mx-auto px-4 py-3">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <h1 className="text-xl sm:text-2xl font-serif font-bold text-amber-800 dark:text-amber-200">
               Elegant Editor
             </h1>
-            <div className="flex items-center gap-2">
-              <input
-                type="text"
-                placeholder="Google Doc ID"
-                value={docId}
-                onChange={(e) => setDocId(e.target.value)}
-                className="px-3 py-1 border border-amber-300 rounded text-sm"
-              />
-              <button
-                onClick={loadFromGoogleDoc}
-                disabled={isLoading || !docId}
-                className="px-3 py-1 bg-amber-600 text-white rounded text-sm hover:bg-amber-700 disabled:opacity-50"
-              >
-                {isLoading ? 'Loading...' : 'Load'}
-              </button>
-              <button
-                onClick={() => setShowInstructions(!showInstructions)}
-                className="px-2 py-1 text-amber-600 hover:text-amber-700 text-sm"
-              >
-                ?
-              </button>
+            
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
+              <div className="flex items-center gap-2">
+                <input
+                  type="text"
+                  placeholder="Google Doc ID"
+                  value={docId}
+                  onChange={(e) => setDocId(e.target.value)}
+                  className="flex-1 sm:w-32 px-2 py-1 border border-amber-300 rounded text-sm"
+                />
+                <button
+                  onClick={loadFromGoogleDoc}
+                  disabled={isLoading || !docId}
+                  className="px-2 py-1 bg-amber-600 text-white rounded text-sm hover:bg-amber-700 disabled:opacity-50"
+                >
+                  {isLoading ? 'Loading...' : 'Load'}
+                </button>
+                <button
+                  onClick={() => setShowInstructions(!showInstructions)}
+                  className="px-2 py-1 text-amber-600 hover:text-amber-700 text-sm"
+                >
+                  ?
+                </button>
+              </div>
+              
+              <div className="flex items-center justify-between sm:gap-4">
+                <span className="text-xs sm:text-sm text-amber-600">
+                  {isSaving ? 'Saving...' : 'Auto-saved'}
+                </span>
+                <button
+                  onClick={saveContent}
+                  className="px-3 py-1 sm:px-4 sm:py-2 bg-amber-600 text-white rounded hover:bg-amber-700 text-sm"
+                >
+                  Save
+                </button>
+              </div>
             </div>
-          </div>
-          
-          <div className="flex items-center gap-4">
-            <span className="text-sm text-amber-600">
-              {isSaving ? 'Saving...' : 'Auto-saved'}
-            </span>
-            <button
-              onClick={saveContent}
-              className="px-4 py-2 bg-amber-600 text-white rounded hover:bg-amber-700"
-            >
-              Save
-            </button>
           </div>
         </div>
       </header>
@@ -126,7 +129,7 @@ export default function ElegantEditor() {
       )}
 
       {/* Editor */}
-      <main className="max-w-4xl mx-auto px-6 py-8">
+      <main className="max-w-4xl mx-auto px-4 py-4 sm:px-6 sm:py-8">
         <RichTextEditor
           content={content}
           onChange={setContent}
@@ -134,7 +137,7 @@ export default function ElegantEditor() {
         />
         
         {/* Writing Stats */}
-        <div className="mt-6 flex justify-between text-sm text-amber-600 dark:text-amber-400">
+        <div className="mt-4 flex justify-between text-xs sm:text-sm text-amber-600 dark:text-amber-400">
           <span>Words: {content.replace(/<[^>]*>/g, '').split(/\s+/).filter(word => word.length > 0).length}</span>
           <span>Characters: {content.replace(/<[^>]*>/g, '').length}</span>
         </div>
