@@ -59,7 +59,7 @@ export default function RichTextEditor({ content, onChange, placeholder }: RichT
   };
 
   return (
-    <div className="bg-white dark:bg-amber-900 rounded-lg shadow-xl border border-amber-200 dark:border-amber-700 min-h-[600px] overflow-hidden">
+    <div className="bg-white dark:bg-amber-900 rounded-lg shadow-xl border border-amber-200 dark:border-amber-700 min-h-[600px] overflow-visible relative">
       <Toolbar editorRef={editorRef} />
       
       <div
