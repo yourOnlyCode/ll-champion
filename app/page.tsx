@@ -10,13 +10,16 @@ export default function Home() {
             <svg className="w-12 h-12 text-amber-600" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
             </svg>
-            <div className="mt-2">
+            <div className="mt-2=1">
+              <div className="text-sm font-serif text-amber-500 dark:text-amber-400 tracking-widest opacity-75">
+                Author's
+              </div>
               <div className="text-2xl font-serif font-bold text-amber-800 dark:text-amber-200 leading-none">
                 Champion
               </div>
-              <div className="text-sm font-serif text-amber-500 dark:text-amber-400 tracking-widest opacity-75">
+              {/* <div className="text-sm font-serif text-amber-500 dark:text-amber-400 tracking-widest opacity-75">
                 by Loreland
-              </div>
+              </div> */}
             </div>
           </div>
           <a href="/auth/signin" className="px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-medium">
@@ -33,8 +36,8 @@ export default function Home() {
             <span className="text-amber-600"> The World</span>
           </h1>
           <p className="text-xl text-amber-700 dark:text-amber-300 max-w-2xl mx-auto mb-8 font-light italic">
-            "Every great author was once a beginner. Transform your manuscript into a published masterpiece
-            with our elegant self-publishing platform designed by writers, for writers."
+            "Share your opening act and captivate readers before you publish. Build an audience around
+            your story with our platform designed to showcase the first moments that hook them all."
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="/auth/signin" className="px-8 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors font-medium inline-block text-center">
@@ -68,7 +71,34 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Multi-Platform Publishing */}
+        <div className="text-center mb-20 px-6">
+          <div className="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-800 dark:to-orange-800 rounded-2xl p-8 border border-amber-200 dark:border-amber-700">
+            <h2 className="text-3xl font-serif font-bold text-amber-900 dark:text-amber-100 mb-4">
+              From Demo to Distribution
+            </h2>
+            <p className="text-lg text-amber-700 dark:text-amber-300 max-w-3xl mx-auto mb-6">
+              Convert your complete manuscript
+              to formats perfectly suited for Amazon KDP, Apple Books, Barnes & Noble, and more.
+              Your demo becomes the gateway to publish-ready files.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-amber-600 dark:text-amber-400">
+              <span className="px-3 py-1 bg-white/50 dark:bg-amber-700/50 rounded-full">Amazon KDP</span>
+              <span className="px-3 py-1 bg-white/50 dark:bg-amber-700/50 rounded-full">Apple Books</span>
+              <span className="px-3 py-1 bg-white/50 dark:bg-amber-700/50 rounded-full">Barnes & Noble</span>
+              <span className="px-3 py-1 bg-white/50 dark:bg-amber-700/50 rounded-full">Google Play Books</span>
+              <span className="px-3 py-1 bg-white/50 dark:bg-amber-700/50 rounded-full">Kobo</span>
+            </div>
+          </div>
+        </div>
+
         {/* Features */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-serif font-bold text-amber-900 dark:text-amber-100">
+            Our Suite of Author Tools
+          </h2>
+        </div>
+
         <div className="grid md:grid-cols-3 gap-8">
           <div className="text-center p-6 bg-white/50 dark:bg-amber-800/30 rounded-xl">
             <div className="w-12 h-12 bg-amber-100 dark:bg-amber-800 rounded-full mx-auto mb-4 flex items-center justify-center">
@@ -77,7 +107,7 @@ export default function Home() {
               </svg>
             </div>
             <h3 className="text-xl font-serif font-semibold text-amber-900 dark:text-amber-100 mb-2">Elegant Editor</h3>
-            <p className="text-amber-700 dark:text-amber-300">Write with focus in our distraction-free environment. Format, edit, and perfect your manuscript.</p>
+            <p className="text-amber-700 dark:text-amber-300">A flexible editor with the capability to instantly import manuscripts from a myriad of platforms.</p>
           </div>
           <div className="text-center p-6 bg-white/50 dark:bg-amber-800/30 rounded-xl">
             <div className="w-12 h-12 bg-orange-100 dark:bg-orange-800 rounded-full mx-auto mb-4 flex items-center justify-center">
@@ -86,7 +116,7 @@ export default function Home() {
               </svg>
             </div>
             <h3 className="text-xl font-serif font-semibold text-amber-900 dark:text-amber-100 mb-2">Beautiful Books</h3>
-            <p className="text-amber-700 dark:text-amber-300">Professional layouts and covers that make your work shine. Print and digital formats ready.</p>
+            <p className="text-amber-700 dark:text-amber-300">A conversion tool that will take any format you've written your manuscript in and construct it for any platform.</p>
           </div>
           <div className="text-center p-6 bg-white/50 dark:bg-amber-800/30 rounded-xl">
             <div className="w-12 h-12 bg-red-100 dark:bg-red-800 rounded-full mx-auto mb-4 flex items-center justify-center">
@@ -94,8 +124,49 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
               </svg>
             </div>
-            <h3 className="text-xl font-serif font-semibold text-amber-900 dark:text-amber-100 mb-2">Global Reach</h3>
-            <p className="text-amber-700 dark:text-amber-300">Distribute worldwide through major retailers. Keep 70% royalties and full creative control.</p>
+            <h3 className="text-xl font-serif font-semibold text-amber-900 dark:text-amber-100 mb-2">Champion's Highlight</h3>
+            <p className="text-amber-700 dark:text-amber-300">Request to get your Demo featured on our weekly highlights to push stand-out projects to the forefront of our application.</p>
+          </div>
+        </div>
+
+        {/* Author's Dashboard */}
+        <div className="mt-20 mb-20">
+          <div className="bg-gradient-to-r from-amber-100 to-orange-100 dark:from-amber-800 dark:to-orange-800 rounded-2xl p-12 border border-amber-200 dark:border-amber-700">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-serif font-bold text-amber-900 dark:text-amber-100">
+                Author's Dashboard
+              </h2>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="bg-white/50 dark:bg-amber-800/30 rounded-xl p-8 border border-amber-200 dark:border-amber-700">
+              <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full mx-auto mb-6 flex items-center justify-center">
+                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-serif font-semibold text-amber-900 dark:text-amber-100 mb-4">Story Analytics</h3>
+              <p className="text-amber-700 dark:text-amber-300 leading-relaxed">
+                Track reader engagement, view counts, and demographic insights for your demos. 
+                Understand which chapters captivate audiences and optimize your storytelling approach 
+                with detailed performance metrics.
+              </p>
+            </div>
+            
+            <div className="bg-white/50 dark:bg-amber-800/30 rounded-xl p-8 border border-amber-200 dark:border-amber-700">
+              <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full mx-auto mb-6 flex items-center justify-center">
+                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-serif font-semibold text-amber-900 dark:text-amber-100 mb-4">Secure Hosting & Storage</h3>
+              <p className="text-amber-700 dark:text-amber-300 leading-relaxed">
+                Host your stories with confidence using our secure cloud infrastructure. 
+                Enjoy offline storage capabilities, automatic backups, and seamless access 
+                to your manuscripts from anywhere, anytime.
+              </p>
+            </div>
+          </div>
           </div>
         </div>
       </main>
