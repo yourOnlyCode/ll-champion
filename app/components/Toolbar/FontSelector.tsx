@@ -7,12 +7,12 @@ interface FontSelectorProps {
 }
 
 const defaultFonts = [
-  { name: 'Georgia', value: 'Georgia, serif' },
-  { name: 'Times New Roman', value: 'Times New Roman, serif' },
-  { name: 'Arial', value: 'Arial, sans-serif' },
-  { name: 'Helvetica', value: 'Helvetica, sans-serif' },
-  { name: 'Courier New', value: 'Courier New, monospace' },
-  { name: 'Verdana', value: 'Verdana, sans-serif' },
+  { name: 'Georgia', value: 'Georgia, serif' }, // Update to only use system fonts eventually
+  // { name: 'Times New Roman', value: 'Times New Roman, serif' },
+  // { name: 'Arial', value: 'Arial, sans-serif' },
+  // { name: 'Helvetica', value: 'Helvetica, sans-serif' },
+  // { name: 'Courier New', value: 'Courier New, monospace' },
+  // { name: 'Verdana', value: 'Verdana, sans-serif' },
 ];
 
 export default function FontSelector({ editorRef }: FontSelectorProps) {
@@ -32,18 +32,18 @@ export default function FontSelector({ editorRef }: FontSelectorProps) {
               name: font.family,
               value: `"${font.family}", sans-serif`
             }))
-            .filter((font: any, index: number, arr: any[]) => 
+            .filter((font: any, index: number, arr: any[]) =>
               arr.findIndex(f => f.name === font.name) === index
             )
             .sort((a: any, b: any) => a.name.localeCompare(b.name));
-          
+
           setFonts([...defaultFonts, ...fontList]);
         }
       } catch (error) {
         console.log('Font Access API not available, using default fonts');
       }
     };
-    
+
     loadSystemFonts();
   }, []);
 
@@ -77,9 +77,9 @@ export default function FontSelector({ editorRef }: FontSelectorProps) {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
       </button>
-      
+
       {fontDropdownOpen && (
-        <div 
+        <div
           className="fixed bg-white border border-amber-300 rounded shadow-lg min-w-[160px]"
           style={{
             top: `${dropdownPosition.top + 4}px`,
